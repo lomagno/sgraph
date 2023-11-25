@@ -1,0 +1,2 @@
+blu: #0088aa
+orange: #ff7f2a
