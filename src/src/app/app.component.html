@@ -1,0 +1,27 @@
+<mat-toolbar style="background-color:#0088aa">
+  <a routerLink="/">
+    <img src="assets/img/logotype_for_navigation_header.svg" class="logo">
+  </a>
+  <span class="spacer"></span>
+  <button
+    class="btn btn-light"
+    routerLink="/"
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{exact: true}">
+    Home
+  </button>
+  <button 
+    class="ms-1 btn btn-light"
+    routerLink="/line-chart"
+    routerLinkActive="active-link">
+    Line chart
+  </button>
+  <button
+    class="ms-1 btn btn-light"
+    routerLink="/3d-scatter"
+    routerLinkActive="active-link">
+    3D scatter
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,24 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Options
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="form" class="row">
+        <mat-form-field class="col-md-2" appearance="outline" hideRequiredMarker>
+            <mat-label>Width</mat-label>
+            <input type="number" formControlName="width" matInput>
+        </mat-form-field>
+        <mat-form-field class="col-md-2" appearance="outline" hideRequiredMarker>
+            <mat-label>Height</mat-label>
+            <input type="number" formControlName="height" matInput>
+        </mat-form-field>
+        <mat-form-field class="col-md-2" appearance="outline" hideRequiredMarker>
+            <mat-label>Symbol size</mat-label>
+            <input type="number" formControlName="symbolSize" matInput>
+        </mat-form-field>
+        <mat-checkbox class="col-md-2" formControlName="showAxisPoint">
+            Show axis pointer
+        </mat-checkbox>       
+    </form>
+</mat-expansion-panel>

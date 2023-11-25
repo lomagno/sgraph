@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>Select data</h1>
+<div mat-dialog-content>
+    <ng-container *ngIf="!isLoadingStataVariablesList; else loadingStataVariablesList">
+        <ng-container *ngIf="!isSwireConnectionError; else swireConnectionError">
+            <form *ngIf="stataVariablesList.length > 0; else noStataVariable"
+                [formGroup]="form"
+                class="row">
+                <mat-form-field class="col-12">
+                    <mat-label>X variable</mat-label>
+                    <mat-select formControlName="xStataVariableName">
+                        @for (stataVariable of stataVariablesList; track stataVariable) {
+                        <mat-option [value]="stataVariable">{{stataVariable}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col-12">
+                    <mat-label>Y variable</mat-label>
+                    <mat-select formControlName="yStataVariableName">
+                        @for (stataVariable of stataVariablesList; track stataVariable) {
+                        <mat-option [value]="stataVariable">{{stataVariable}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+                <mat-checkbox formControlName="skipMissingValues" class="col-12">Skip records with missing values</mat-checkbox>
+            </form>
+            <ng-template #noStataVariable>
+                <app-no-stata-variables></app-no-stata-variables>
+            </ng-template>
+        </ng-container>
+        <ng-template #swireConnectionError>
+            <app-swire-connection-error></app-swire-connection-error>
+        </ng-template>
+    </ng-container>
+
+    <ng-template #loadingStataVariablesList>
+        <app-spinner></app-spinner>
+    </ng-template>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onCancelButtonClicked()">Cancel</button>
+    <button mat-button (click)="onOkButtonClicked()" cdkFocusInitial [disabled]="form.invalid">Ok</button>
+</div>

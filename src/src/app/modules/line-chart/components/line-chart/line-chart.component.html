@@ -1,0 +1,23 @@
+<h1 class="title">Line chart</h1>
+    
+<button mat-flat-button color="primary"
+        (click)="onSelectDataButtonClicked()">
+    Select data
+</button>
+
+<div>
+    <ng-container *ngIf="isLineChartDataAvailable">
+        <div class="mt-2">
+            <app-options [model]="optionsFormModel" (on-changed)="onOptionsChanged($event)">
+            </app-options>
+        </div>   
+        <div class="d-flex justify-content-center mt-2 mb-2">
+            <div echarts
+                id="chart-container"
+                [options]="chartOption"
+                (chartInit)="onChartInit($event)">
+            </div>
+        </div>
+
+    </ng-container>
+</div>
